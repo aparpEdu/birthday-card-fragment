@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Birthday-Card</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="birthday_name">Birthday name</string>
+    <string name="age">Age</string>
+    <string name="wishes">Wishes</string>
+    <string name="alien">Alien</string>
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+    <string name="birthday_picture">Birthday picture</string>
+    <string name="happy_birthday_dancho_from_kichevo">Happy birthday Dancho from Kichevo</string>
+    <string name="submit">Submit</string>
+    <string name="_22">22</string>
+    <array name="urls">
+        <item>https://i5.walmartimages.com/asr/03bbc700-c636-4512-af1f-7dce908f837a_1.768b41543f21b249738e1c82da35efe1.jpeg?odnHeight=768&amp;odnWidth=768&amp;odnBg=FFFFFF</item>
+        <item>https://www.thesprucepets.com/thmb/tu1I1b1_2KHdv_-jC1Y_HmpkXTE=/1080x0/filters:no_upscale():strip_icc()/27579948_547443672291161_4754606380961234944_n-5a70c2ac31283400364b124b.jpg</item>
+        <item>https://m.media-amazon.com/images/I/71viqGAtnYL.jpg</item>
+    </array>
+</resources>
