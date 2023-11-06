@@ -1,85 +1,80 @@
 package com.example.birthday_card.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.example.birthday_card.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.Objects;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BirthdayCardFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BirthdayCardFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private TextView nameTextView;
+    private TextView ageTextView;
+    private TextView wishesTextView;
+    private ImageView imageView;
 
     public BirthdayCardFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BirthdayCardFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BirthdayCardFragment newInstance(String param1, String param2) {
+    public static BirthdayCardFragment newInstance(String name, int age, String wishes, String imageResource) {
         BirthdayCardFragment fragment = new BirthdayCardFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("name", name);
+        args.putInt("age", age);
+        args.putString("wishes", wishes);
+        args.putString("imageResource", imageResource);
         fragment.setArguments(args);
         return fragment;
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+        Log.d("FF", "ONCREATE REACHED");
         return inflater.inflate(R.layout.fragment_birthday_card2, container, false);
     }
 
-    public void updateData(String name, int age, String wishes, String imageResource) {
-        TextView nameTextView = requireView().findViewById(R.id.celebrant);
-        TextView ageTextView = requireView().findViewById(R.id.ageCard);
-        TextView wishesTextView = requireView().findViewById(R.id.wishesCard);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("FF","ONVIEW REACHED");
+        nameTextView = view.findViewById(R.id.celebrant);
+        ageTextView = view.findViewById(R.id.ageCard);
+        wishesTextView = view.findViewById(R.id.wishesCard);
+        imageView = view.findViewById(R.id.picture);
+        Bundle args = getArguments();
+        if (args != null) {
+            String name = args.getString("name");
+            int age = args.getInt("age");
+            String wishes = args.getString("wishes");
+            String imageResource = args.getString("imageResource");
+            updateData(name, age, wishes, imageResource);
+        }
 
-        nameTextView.setText(name);
-        ageTextView.setText(String.valueOf(age));
-        wishesTextView.setText(wishes);
-
-        ImageView imageView = requireView().findViewById(R.id.picture);
-        Picasso.get().load(imageResource).into(imageView);
     }
 
+    public void updateData(String name, int age, String wishes, String imageResource) {
+        Log.d("FF", " UPDATE REACHED");
+
+
+        if (nameTextView != null && ageTextView != null && wishesTextView != null) {
+            nameTextView.setText(name);
+            ageTextView.setText(String.valueOf(age));
+            wishesTextView.setText(wishes);
+        }
+
+        if (imageView != null) {
+            Picasso.get().load(imageResource).into(imageView);
+        } else {
+            Log.e("BirthdayCardFragment", "ImageView is null.");
+        }
+    }
 }
