@@ -3,7 +3,6 @@ package com.example.birthday_card;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -19,7 +18,6 @@ public class MainActivity extends AppCompatActivity  implements InputDialogFragm
         setContentView(R.layout.activity_main);
         Button add = findViewById(R.id.button);
         Button remove = findViewById(R.id.button2);
-        FrameLayout frame = findViewById(R.id.frameLayout);
 
         InputDialogFragment inputDialogFragment = InputDialogFragment.newInstance("Enter celebrant's details");
         inputDialogFragment.setInputDialogListener(this);
@@ -53,7 +51,8 @@ public class MainActivity extends AppCompatActivity  implements InputDialogFragm
             imageResource = urls[0];
         }
 
-        BirthdayCardFragment birthdayCardFragment = BirthdayCardFragment.newInstance(name, age, wishes, imageResource);
+        BirthdayCardFragment birthdayCardFragment =
+                BirthdayCardFragment.newInstance(new BirthdayCard(name, wishes, age, imageResource));
 
 
 

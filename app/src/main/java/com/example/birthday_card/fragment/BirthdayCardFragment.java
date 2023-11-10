@@ -8,14 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.birthday_card.BirthdayCard;
 import com.example.birthday_card.R;
 import com.squareup.picasso.Picasso;
 
 public class BirthdayCardFragment extends Fragment {
-
     private TextView nameTextView;
     private TextView ageTextView;
     private TextView wishesTextView;
@@ -24,13 +26,10 @@ public class BirthdayCardFragment extends Fragment {
     public BirthdayCardFragment() {
     }
 
-    public static BirthdayCardFragment newInstance(String name, int age, String wishes, String imageResource) {
+    public static BirthdayCardFragment newInstance(BirthdayCard birthdayCard) {
         BirthdayCardFragment fragment = new BirthdayCardFragment();
         Bundle args = new Bundle();
-        args.putString("name", name);
-        args.putInt("age", age);
-        args.putString("wishes", wishes);
-        args.putString("imageResource", imageResource);
+        args.putParcelable("birthday", birthdayCard);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,11 +51,11 @@ public class BirthdayCardFragment extends Fragment {
         imageView = view.findViewById(R.id.picture);
         Bundle args = getArguments();
         if (args != null) {
-            String name = args.getString("name");
-            int age = args.getInt("age");
-            String wishes = args.getString("wishes");
-            String imageResource = args.getString("imageResource");
-            updateData(name, age, wishes, imageResource);
+            BirthdayCard birthdayCard = getArguments().getParcelable("birthday");
+            if (birthdayCard != null) {
+                updateData(birthdayCard.getName(), birthdayCard.getAge(), birthdayCard.getWishes(),
+                        birthdayCard.getPicture());
+            }
         }
 
     }
