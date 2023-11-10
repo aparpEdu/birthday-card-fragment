@@ -1,52 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bg"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".fragment.BirthdayCardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
+
+        <TextView
+            android:id="@+id/celebrant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:fontFamily="@font/gilroy"
+            android:text="@string/happy_birthday_dancho_from_kichevo"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/ageCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ageCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginBottom="472dp"
+            android:fontFamily="@font/gilroy"
+            android:text="@string/_22"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/wishesCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:fontFamily="@font/gilroy"
+            android:text="@string/wishes"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ageCard" />
+
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="310dp"
+            android:layout_height="274dp"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/birthday_picture"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:fontFamily="@font/gilroy"
-        android:textSize="30sp"
-        android:id="@+id/celebrant"
-        android:layout_height="wrap_content"
-        android:text="@string/happy_birthday_dancho_from_kichevo"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="160dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="@string/_22"
-        android:id="@+id/ageCard"
-        android:textSize="60sp"
-        android:fontFamily="@font/gilroy"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_gravity="top|center_horizontal"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/wishesCard"
-        android:textSize="20sp"
-        android:fontFamily="@font/gilroy"
-        android:text="@string/wishes"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="300dp"
-        />
-
-    <ImageView
-        android:layout_width="310dp"
-        android:layout_height="273dp"
-        android:id="@+id/picture"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="350dp"
-        android:contentDescription="@string/birthday_picture" />
-
-</FrameLayout>
+</androidx.cardview.widget.CardView>

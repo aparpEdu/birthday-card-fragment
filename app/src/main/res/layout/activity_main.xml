@@ -10,8 +10,8 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="403dp"
-        android:layout_height="585dp"
+        android:layout_width="409dp"
+        android:layout_height="617dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="28dp"
         android:fontFamily="@font/gilroy"
         android:text="@string/add"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,12 +35,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/gilroy"
         android:text="@string/remove"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toEndOf="@+id/button" />
 
 
