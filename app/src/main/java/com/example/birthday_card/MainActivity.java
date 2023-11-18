@@ -12,6 +12,7 @@ import com.example.birthday_card.fragment.InputDialogFragment;
 
 public class MainActivity extends AppCompatActivity  implements InputDialogFragment.InputDialogListener {
 
+    private final String FRAGMENT_TAG = "birthdayCardFragment";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity  implements InputDialogFragm
         inputDialogFragment.setInputDialogListener(this);
         add.setOnClickListener(view -> inputDialogFragment.show(getSupportFragmentManager(), "inputDialog"));
         remove.setOnClickListener(view -> {
-            Fragment currentFragment = getSupportFragmentManager().findFragmentByTag("birthdayCardFragment");
+            Fragment currentFragment = getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG);
             if (currentFragment != null) {
                 getSupportFragmentManager()
                         .beginTransaction()
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity  implements InputDialogFragm
                         .commit();
             }
         });
-
     }
 
     @Override
@@ -54,16 +54,11 @@ public class MainActivity extends AppCompatActivity  implements InputDialogFragm
         BirthdayCardFragment birthdayCardFragment =
                 BirthdayCardFragment.newInstance(new BirthdayCard(name, wishes, age, imageResource));
 
-
-
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frameLayout, birthdayCardFragment, "birthdayCardFragment")
+                .replace(R.id.frameLayout, birthdayCardFragment, FRAGMENT_TAG)
                 .commit();
 
         birthdayCardFragment.updateData(name, age, wishes, imageResource);
-
-
-
     }
 }
