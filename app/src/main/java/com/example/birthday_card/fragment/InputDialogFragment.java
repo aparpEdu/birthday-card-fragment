@@ -1,5 +1,6 @@
 package com.example.birthday_card.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ public class InputDialogFragment extends DialogFragment {
     public interface InputDialogListener {
         void onDataEntered(Bundle data);
     }
-    private InputDialogListener mListener;
+    private InputDialogListener listener;
 
     private EditText name;
     private EditText age;
@@ -33,7 +34,7 @@ public class InputDialogFragment extends DialogFragment {
     public InputDialogFragment(){}
 
     public void setInputDialogListener(InputDialogListener listener) {
-        mListener = listener;
+        this.listener = listener;
     }
 
     public static InputDialogFragment newInstance(String title) {
@@ -71,12 +72,20 @@ public class InputDialogFragment extends DialogFragment {
             data.putString("wishes", wishes.getText().toString());
             data.putInt("selectedRadioButtonId", pictures.getCheckedRadioButtonId());
 
-            if (mListener != null) {
-                mListener.onDataEntered(data);
+            if (listener != null) {
+                listener.onDataEntered(data);
             }
 
             dismiss();
         });
 
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof InputDialogListener) {
+            listener = (InputDialogListener) context;
+        }
     }
 }
