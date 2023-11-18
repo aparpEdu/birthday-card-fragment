@@ -7,10 +7,10 @@ import androidx.annotation.NonNull;
 
 public class BirthdayCard implements Parcelable {
 
-    private String name;
-    private String wishes;
-    private int age;
-    private String picture;
+    private final String name;
+    private final String wishes;
+    private final int age;
+    private final  String picture;
 
     public BirthdayCard(String name, String wishes, int age, String picture) {
         this.name = name;
@@ -55,31 +55,22 @@ public class BirthdayCard implements Parcelable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getWishes() {
         return wishes;
     }
 
-    public void setWishes(String wishes) {
-        this.wishes = wishes;
-    }
+
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+
 
     public String getPicture() {
         return picture;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
+
 }
